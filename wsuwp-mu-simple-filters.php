@@ -1,4 +1,12 @@
 <?php
+/*
+Plugin Name: WSU MU Simple Filters
+Plugin URI: https://github.com/washingtonstateuniversity/WSUWP-Plugin-MU-Simple-Filters
+Description: A collection of simple multisite filters deployed as a must use plugin.
+Author: washingtonstateuniversity, jeremyfelt
+Author URI: https://web.wsu.edu
+Version: 0.0.1
+*/
 
 /**
  * Disable all of the standard update and version checks on all other sites
@@ -24,3 +32,19 @@ if ( ! is_main_network() && ! is_main_site() ) {
 	remove_action( 'init', 'wp_schedule_update_checks' );
 }
 
+/**
+ * ms_files_rewriting should never be enabled.
+ */
+add_filter( 'pre_option_ms_files_rewriting', '__return_false' );
+
+/**
+ * We should always use yearmonth folders for uploads.
+ */
+add_filter( 'pre_option_uploads_use_yearmonth_folders', '__return_true' );
+
+/**
+ * Disable the multisite database upgrade routine.
+ *
+ * @see wp-admin/admin.php
+ */
+add_filter( 'do_mu_upgrade', '__return_false' );
