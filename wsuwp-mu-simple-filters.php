@@ -48,3 +48,6 @@ add_filter( 'pre_option_uploads_use_yearmonth_folders', '__return_true' );
  * @see wp-admin/admin.php
  */
 add_filter( 'do_mu_upgrade', '__return_false' );
+
+// Prevent WordPress from dropping tables for a deleted site.
+add_filter( 'wpmu_drop_tables', '__return_empty_array' );
