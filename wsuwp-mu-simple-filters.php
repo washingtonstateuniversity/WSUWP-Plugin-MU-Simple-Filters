@@ -5,7 +5,7 @@ Plugin URI: https://github.com/washingtonstateuniversity/WSUWP-Plugin-MU-Simple-
 Description: A collection of simple multisite filters deployed as a must use plugin.
 Author: washingtonstateuniversity, jeremyfelt
 Author URI: https://web.wsu.edu
-Version: 1.6.1
+Version: 1.6.2
 */
 
 /**
