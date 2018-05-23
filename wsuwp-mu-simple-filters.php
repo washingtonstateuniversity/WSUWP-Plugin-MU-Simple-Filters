@@ -5,7 +5,7 @@ Plugin URI: https://github.com/washingtonstateuniversity/WSUWP-Plugin-MU-Simple-
 Description: A collection of simple multisite filters deployed as a must use plugin.
 Author: washingtonstateuniversity, jeremyfelt
 Author URI: https://web.wsu.edu
-Version: 1.6.1
+Version: 1.6.2
 */
 
 /**
@@ -31,6 +31,13 @@ if ( ! is_main_network() && ! is_main_site() ) {
 
 	remove_action( 'init', 'wp_schedule_update_checks' );
 }
+
+/**
+ * Remove WordPress core privacy export actions to prevent unnecessary
+ * scheduled events from appearing.
+ */
+remove_action( 'init', 'wp_schedule_delete_old_privacy_export_files' );
+remove_action( 'wp_privacy_delete_old_export_files', 'wp_privacy_delete_old_export_files' );
 
 /**
  * ms_files_rewriting should never be enabled.
